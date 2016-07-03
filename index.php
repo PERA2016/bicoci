@@ -2,7 +2,7 @@
 /*
 Plugin Name: BICOCI
 Plugin URI: http://bicoci.site88.net
-Description: Biblioteca virtual de departamento de comunicaciones y cienciasd de la computacion
+Description: Biblioteca virtual de departamento de comunicaciones y ciencias de la computacion
 Version: 1.0
 Author: Alumno PERA
 Author URI: http://bicoci.site88.net
