@@ -200,6 +200,53 @@ case 'papers':
       }
       return $contextual_help;
     break;
+case 'videoteca':
+       //Ayuda Para Editar un Video
+      if ( in_array( $pagenow, array( 'post.php' ))&& $screen->id=='videoteca')
+      {
+         $contextual_help =
+          '<p><strong>Agregar Nuevo: </strong> publicar un nuevo video.</p>' .
+          '<p><strong>Estado: </strong> cambiar el estado de la publicación del video.</p>' .
+          '<p><strong>Publicado el: </strong> programar publicación en la fecha y hora seleccionada.</p>' .
+          '<p><strong>Actualizar: </strong> guardar los cambios realizados al video.</p>' .
+          '<p><strong>Asignar imagen destacada: </strong> permite asignar una imagen para el video (opcional).</p>' .
+          '<p><strong>Contenido: </strong>Debe ingresar la direccion url a la que sera redireccionado el visitante y que contiene la informacion del video.</p>' 
+           ;         
+      }elseif (in_array( $pagenow, array( 'post-new.php' ))&& $screen->id=='videoteca') {
+          //Ayuda Para Nuevo Video.
+          $contextual_help =
+           '<p><strong>Guardar Borrador: </strong>guardar el video como borrador sin publicarlo.</p>'.
+           '<p><strong>Estado: </strong>cambiar el estado de la publicación del video.</p>'.
+           '<p><strong>Publicar inmediatamente: </strong> programar publicación automatica en la fecha y hora seleccionada.</p>'.
+           '<p><strong>Publicar: </strong> Opción de publicar un video'.
+           '<p><strong>Asigmar imagen destacada: </strong> permite asignar una imagen para el video (opcional).</p>'.
+           '<p><strong>Contenido: </strong>Debe ingresar la direccion url a la que sera redireccionado el visitante y que contiene la informacion del video.</p>'
+           ;        
+      }
+      return $contextual_help;
+    break;
+    case 'edit-videoteca':
+      if ( in_array( $pagenow, array( 'edit.php' ) ) && $screen->id=='edit-videoteca')
+        {
+          //Ayuda Para Lista Video.
+        $contextual_help =
+          '<p><strong>Agregar Nuevo: </strong> Agregar un nuevo video.</p>' .
+          '<p><strong>Todos: </strong> listar todos los videos.</p>' .
+          '<p><strong>Mios: </strong> listar todos los videos del usuario logueado.</p>' .
+          '<p><strong>Publicados: </strong> listar todos los videos publicados.</p>' .
+          '<p><strong>Borradores: </strong> listar todos los videos guardados como borrador.</p>' .
+          '<p><strong>Papelera: </strong> listar todos los videos en la Papelera.</p>' .
+          '<p><strong>Cancelados: </strong> listar todos los videos cancelados.</p>' .
+          '<p><strong>Buscar Video: </strong> listar todos los videos cancelados.</p>' .
+          '<p><strong>Acciones en lote: </strong> permite realizar acciones para todos los videos seleccionados.</p>' .
+          '<p><strong>Ver: </strong> Vista previa del contenido del video publicado.</p>' .
+          '<p><strong>Vista previa: </strong> Vista previa del contenido del video.</p>' .
+          '<p><strong>Restaurar: </strong> restaurar un video a su estado anterior</p>' .
+           '<p><strong>Borrar permanentemente: </strong>Borrar un video sin posibilidad de restaurarlo.</p>' 
+           ;
+      }
+      return $contextual_help;
+    break;
 case 'dashboard':
       if ( in_array( $pagenow, array( 'index.php' ) ) && $screen->id=='dashboard')
         {
