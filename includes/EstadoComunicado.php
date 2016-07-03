@@ -163,7 +163,7 @@ echo
 '<div class="Bienvenido-al-BICOCI">'
 .'<h1>Bienvenido al BICOCI</h1>'
 .'</div>';
-echo '<center> <img src='.plugins_url().'/bicoci/includes/img/logo-bicoci.png></center> ';
+echo '<center> <img id="logo-admin"src='.plugins_url().'/bicoci/includes/img/logo-bicoci.png></center> ';
 }
 
 remove_action('welcome_panel','wp_welcome_panel');
