@@ -84,7 +84,7 @@ function Encabezado()
 {
 	echo '<div class="wrap">
           <div class="encabezado">
-            <!-- <img id="logo"    src="'.plugins_url().'/bicoci/includes/img/logo.jpg">-->
+            <img id="logo"    src="'.plugins_url().'/bicoci/includes/img/logo-bicoci.png">
             <!-- <img id="escudo"  src="'.plugins_url().'/bicoci/includes/img/minerva.jpg"> -->
             <div class="titulo-sistema"><br/><p>Biblioteca virtual para gestión de información academica del departamento de comunicaciones y ciencias de la computación(BICOCI)</p><br/></div>                    
           </div>

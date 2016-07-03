@@ -10,7 +10,7 @@ function rfi_guard( $new_status, $old_status, $post ) {
 add_action( 'admin_enqueue_scripts', 'rfi_enqueue_edit_screen_js' );
 function rfi_enqueue_edit_screen_js( $hook ) {
     global $post;
-    $postLibro1[]='libro';
+    $postLibro1=['libro'];
 	if ( $hook !== 'post.php' && $hook !== 'post-new.php' )
         return;
                                     //rfi_return_post_types()
@@ -39,7 +39,7 @@ function rfi_enforcement_start_time() {
 }
 
 function rfi_should_let_post_publish( $post ) {
-    $postLibro2[]='libro';
+    $postLibro2=['libro'];
     $has_featured_image = has_post_thumbnail( $post->ID );
     $is_watched_post_type = in_array( $post->post_type, $postLibro2 );
     $is_after_enforcement_time = strtotime( $post->post_date ) > rfi_enforcement_start_time();

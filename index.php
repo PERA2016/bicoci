@@ -15,7 +15,7 @@ require_once(bicoci_plugin_dir.'/controller/LibroController.php');
 require_once(bicoci_plugin_dir.'/controller/RevistaController.php');
 require_once(bicoci_plugin_dir.'/controller/HemerotecaController.php');
 require_once(bicoci_plugin_dir.'/controller/PapersController.php');
-
+require_once(bicoci_plugin_dir.'/controller/VideotecaController.php');
 
 require_once(bicoci_plugin_dir.'/includes/EstadoComunicado.php');
 
