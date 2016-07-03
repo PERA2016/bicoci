@@ -189,7 +189,7 @@ function remove_row_actions( $actions, $post )
 /*------------------------------------------------------------------------------------
     Agregar nuevas categorias
 ------------------------------------------------------------------------------------*/
-//Definir las categorias de Los Publicados
+//Crear categorias de Los Publicados
 function categoria(){
 $my_catLibro = array('cat_name' => 'libro', 
     'category_description' => 'Publicados de libros de la EISI',
@@ -221,6 +221,13 @@ $my_catPapers = array('cat_name' => 'papers',
 // Create the category
 wp_insert_category($my_catPapers);
 
+$my_catVideoteca = array('cat_name' => 'videoteca', 
+    'category_description' => 'Publicados de videos de la EISI',
+     'category_nicename' => 'videoteca',
+      'category_parent' => '');
+
+// Create the category
+wp_insert_category($my_catVideoteca);
 
 }
 add_action('admin_init','categoria');

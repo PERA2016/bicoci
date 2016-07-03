@@ -93,12 +93,12 @@ public function LibroInit()
 				 remove_menu_page('edit-comments.php');//Remover Menu Comentarios.
     	    	 remove_menu_page('edit.php'); //Remover Menu Entradas.
     	    	 remove_menu_page('edit-tags.php'); //Remover Menu categorias.
-    	    	 //Remover Categorias dentro de libro, revista, hemeroteca
+    	    	 //Remover Categorias dentro de libro, revista, hemeroteca, videoteca.
     	    	 remove_submenu_page( 'edit.php?post_type=revista', 'edit-tags.php?taxonomy=category&amp;post_type=revista' );
     	    	 remove_submenu_page( 'edit.php?post_type=libro', 'edit-tags.php?taxonomy=category&amp;post_type=libro' );
     	    	 remove_submenu_page( 'edit.php?post_type=hemeroteca', 'edit-tags.php?taxonomy=category&amp;post_type=hemeroteca' );
     	    	 remove_submenu_page( 'edit.php?post_type=papers', 'edit-tags.php?taxonomy=category&amp;post_type=papers' );
-
+                 remove_submenu_page( 'edit.php?post_type=videoteca', 'edit-tags.php?taxonomy=category&amp;post_type=videoteca' );
     	    	}
 		add_action( 'admin_menu', 'RemoverMenuEntradasWP' ); 
 		//Agregar los CPT a Main Feed
