@@ -10,11 +10,11 @@ function default_category_save2($post_ID){
 			$_tipoCPT="";// variable tipo CPT
 			$_idCPT=$post_ID;//Asignar id CPT
 			$_tipoCPT=get_post_type( $post_ID );//Obtener tipo CPT.
-			if ($_tipoCPT=="libro") {
+			if ($_tipoCPT=="libros") {
 				//Obtener Dinamicamente id Categoria libro
 				require_once(bicoci_plugin_dir.'/model/ComunicadoModel.php');//Modelo Para comunicados
   				$model = new  ComunicadoModel(); //Instanciar La clase ComunicadoModel
-  				$resultado = $model->get_Categoria("libro");//Obtener el Id de la categoria "libro"
+  				$resultado = $model->get_Categoria("libros");//Obtener el Id de la categoria "libro"
 				wp_set_post_categories($post_ID, $resultado);//Asignar Categoria Automaticamente a libro nuevo
 			 }
 		}
@@ -60,7 +60,7 @@ public function LibroInit()
 			'show_ui'            => true,
 			'show_in_menu'       => true,//Si se muestra en el menu de administracion
 			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'libro' ),//ID del CPT
+			'rewrite'            => array( 'slug' => 'libros' ),//ID del CPT
 			'capability_type'    => 'post',//De donde deriba el CPT, Existen otros tipos como Admon de media etc
 			'has_archive'        => true,// Si se puede agregar un archico el CPT
 			'hierarchical'       => false,
@@ -72,7 +72,7 @@ public function LibroInit()
 			'menu_icon' => 'dashicons-editor-spellcheck'//Icono del CPT
 						);
 			///Registrar Nuestro CTP (Custom Type Post)
-				register_post_type( 'libro', $args ); //ID dep CPT
+				register_post_type( 'libros', $args ); //ID dep CPT
 		}/// fin Funcion ProyectoCTP
 
 //********************Configuraciones extras*******************************************//
@@ -93,9 +93,9 @@ public function LibroInit()
 				 remove_menu_page('edit-comments.php');//Remover Menu Comentarios.
     	    	 remove_menu_page('edit.php'); //Remover Menu Entradas.
     	    	 remove_menu_page('edit-tags.php'); //Remover Menu categorias.
-    	    	 //Remover Categorias dentro de libro, revista, hemeroteca, videoteca.
-    	    	 remove_submenu_page( 'edit.php?post_type=revista', 'edit-tags.php?taxonomy=category&amp;post_type=revista' );
-    	    	 remove_submenu_page( 'edit.php?post_type=libro', 'edit-tags.php?taxonomy=category&amp;post_type=libro' );
+    	    	 //Remover Categorias dentro de libros, revistas-cientificas, hemeroteca, videoteca.
+    	    	 remove_submenu_page( 'edit.php?post_type=revistas-cientificas', 'edit-tags.php?taxonomy=category&amp;post_type=revistas-cientificas' );
+    	    	 remove_submenu_page( 'edit.php?post_type=libros', 'edit-tags.php?taxonomy=category&amp;post_type=libros' );
     	    	 remove_submenu_page( 'edit.php?post_type=hemeroteca', 'edit-tags.php?taxonomy=category&amp;post_type=hemeroteca' );
     	    	 remove_submenu_page( 'edit.php?post_type=papers', 'edit-tags.php?taxonomy=category&amp;post_type=papers' );
                  remove_submenu_page( 'edit.php?post_type=videoteca', 'edit-tags.php?taxonomy=category&amp;post_type=videoteca' );
@@ -105,7 +105,7 @@ public function LibroInit()
 		function AgregarCPTMainFeed($qv) 
 				{
 				 if (isset($qv['feed']) && !isset($qv['post_type']))
-				 $qv['post_type'] = array('libro', 'revista','hemeroteca','papers');//CPT creados
+				 $qv['post_type'] = array('libros', 'revistas-cientificas','hemeroteca','papers','videoteca');//CPT creados
 				 return $qv;
 				}
 		add_filter('request', 'AgregarCPTMainFeed');
@@ -123,7 +123,7 @@ public function LibroInit()
 				if($post_type)
 				    $post_type = $post_type;
 				else
-				    $post_type = array('post','libro','hemeroteca','revista','papers'); // replace cpt to your custom post type
+				    $post_type = array('post','libros','hemeroteca','revistas-cientificas','papers'); // replace cpt to your custom post type
 			    $query->set('post_type',$post_type);
 				return $query;
 			    }

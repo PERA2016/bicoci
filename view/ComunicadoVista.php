@@ -13,9 +13,9 @@ class ComunicadoVista
 
   switch ($screen->id) {
     //Control de Ayuda para Libros
-    case 'libro':
+    case 'libros':
        //Ayuda Para Editar un Libro
-      if ( in_array( $pagenow, array( 'post.php' ))&& $screen->id=='libro'  )
+      if ( in_array( $pagenow, array( 'post.php' ))&& $screen->id=='libros'  )
       {
          $contextual_help =
           '<p><strong>Agregar Nuevo: </strong> publicar un nuevo libro.</p>' .
@@ -27,7 +27,7 @@ class ComunicadoVista
            ;
       
             
-      }elseif (in_array( $pagenow, array( 'post-new.php' ))&& $screen->id=='libro') {
+      }elseif (in_array( $pagenow, array( 'post-new.php' ))&& $screen->id=='libros') {
           //Ayuda Para Nuevo Libro.
           $contextual_help =
            '<p><strong>Guardar Borrador: </strong>guardar el libro como borrador sin publicarlo.</p>'.
@@ -40,8 +40,8 @@ class ComunicadoVista
       }
       return $contextual_help;
     break;
-    case 'edit-libro':
-      if ( in_array( $pagenow, array( 'edit.php' ) ) && $screen->id=='edit-libro')
+    case 'edit-libros':
+      if ( in_array( $pagenow, array( 'edit.php' ) ) && $screen->id=='edit-libros')
         {
           //Ayuda Para Lista Libro.
         $contextual_help =
@@ -63,9 +63,9 @@ class ComunicadoVista
       return $contextual_help;
     break;
 ///////////////////////////////////////////////////////////////////////////////////
- case 'revista':
+ case 'revistas-cientificas':
        //Ayuda Para Editar una Revista
-      if ( in_array( $pagenow, array( 'post.php' ))&& $screen->id=='revista'  )
+      if ( in_array( $pagenow, array( 'post.php' ))&& $screen->id=='revistas-cientificas'  )
       {
          $contextual_help =
           '<p><strong>Agregar Nueva: </strong> publicar una nueva revista.</p>' .
@@ -74,7 +74,7 @@ class ComunicadoVista
           '<p><strong>Actualizar: </strong> guardar los cambios realizados a la revista.</p>' .
           '<p><strong>Contenido: </strong>Debe ingresar la direccion url a la que sera redireccionado el visitante y que contiene la informacion de la revista.</p>' 
            ;
-      }elseif (in_array( $pagenow, array( 'post-new.php' ))&& $screen->id=='revista') {
+      }elseif (in_array( $pagenow, array( 'post-new.php' ))&& $screen->id=='revistas-cientificas') {
           //Ayuda Para Nueva Revista.
          $contextual_help =
            '<p><strong>Guardar Borrador: </strong>guardar la revista como borrador sin publicarlo.</p>'.
@@ -86,8 +86,8 @@ class ComunicadoVista
       }
       return $contextual_help;
     break;
-case 'edit-revista':
-      if ( in_array( $pagenow, array( 'edit.php' ) ) && $screen->id=='edit-revista')
+case 'edit-revistas-cientificas':
+      if ( in_array( $pagenow, array( 'edit.php' ) ) && $screen->id=='edit-revistas-cientificas')
         {
           //Ayuda Para Lista Revista.
         $contextual_help =

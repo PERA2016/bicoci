@@ -10,15 +10,13 @@ function default_category_save3($post_ID)
 			$_tipoCPT="";// variable tipo CPT
 			$_idCPT=$post_ID; //Asignar id CPT
 			$_tipoCPT=get_post_type( $post_ID );//Obtener tipo CPT.
-			if ($_tipoCPT=="revista") {
+			if ($_tipoCPT=="revistas-cientificas") {
 				//Obtener Dinamicamente id Categoria Revista 
 				require_once(bicoci_plugin_dir.'/model/ComunicadoModel.php');//Modelo Para comunicados
   				$model = new  ComunicadoModel(); //Instanciar La clase ComunicadoModel
-  				$resultado = $model->get_Categoria("revista");//Obtener el Id de la categoria revista
+  				$resultado = $model->get_Categoria("revistas-cientificas");//Obtener el Id de la categoria revista
 				wp_set_post_categories($post_ID, $resultado);//Asignar Categoria Automaticamente a evento nuevo
 		}
-        
-
     }
         add_action( 'save_post', 'default_category_save3' );
 
@@ -63,7 +61,7 @@ public function RevistaInit()
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'revista' ),
+			'rewrite'            => array( 'slug' => 'revistas-cientificas' ),
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
@@ -73,7 +71,7 @@ public function RevistaInit()
 			'menu_icon' => 'dashicons-images-alt2'
 						);
 			///Registrar Nuestro CTP (Custom Type Post)
-				register_post_type( 'revista', $args ); 
+				register_post_type( 'revistas-cientificas', $args ); 
 		}/// fin Funcion RevistaCTP
 
 		//Hook init para agregar CPT al menu de Administracion.
