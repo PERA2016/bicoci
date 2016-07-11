@@ -89,9 +89,9 @@ public function LibroInit()
 		//Remover Menu de Entradas por Defecto de WP
 		function RemoverMenuEntradasWP() 
 				{
-				 remove_menu_page('upload.php');//Remover Menu Medios.
+				// remove_menu_page('upload.php');//Remover Menu Medios.
 				 remove_menu_page('edit-comments.php');//Remover Menu Comentarios.
-    	    	 remove_menu_page('edit.php'); //Remover Menu Entradas.
+    	    	// remove_menu_page('edit.php'); //Remover Menu Entradas.
     	    	 remove_menu_page('edit-tags.php'); //Remover Menu categorias.
     	    	 //Remover Categorias dentro de libros, revistas-cientificas, hemeroteca, videoteca.
     	    	 remove_submenu_page( 'edit.php?post_type=revistas-cientificas', 'edit-tags.php?taxonomy=category&amp;post_type=revistas-cientificas' );
