@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteBitacora" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="53c09eb1-a4e3-4ee4-9b23-f5d84f9cf132">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PATH" class="java.lang.String"/>
+	<parameter name="idusuario" class="java.lang.String"/>
+	<parameter name="nombreusuario" class="java.lang.String"/>
+	<parameter name="userID" class="java.lang.String"/>
+	<parameter name="context" class="java.lang.String"/>
+	<parameter name="action" class="java.lang.String"/>
+	<parameter name="fecha_ini" class="java.lang.String"/>
+	<parameter name="fecha_fin" class="java.lang.String"/>
+	<parameter name="connector" class="java.lang.String"/>
+	<parameter name="search" class="java.lang.String"/>
+	<parameter name="ip" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT DISTINCT DATE_FORMAT(CONVERT_TZ(T1.created,'+00:00','-06:00'), '%d-%m-%Y / %h:%i') AS created, T1.summary, T1.user_role, T1.user_id,
+ (SELECT T21.meta_value FROM red_stream_meta AS T21 WHERE T21.meta_key = "display_name" AND T21.record_id = T2.record_id) AS usuario,
+ T1.connector, T1.context, T1.action, T1.ip
+FROM red_stream AS T1 LEFT JOIN red_stream_meta AS T2 ON T1.id = T2.record_id
+WHERE (T1.user_id = '' OR ''='') AND (T1.context = '' OR ''='') AND (T1.connector = '' OR ''='') AND (T1.action = '' OR ''='') AND (DATE_SUB(T1.created,INTERVAL 6 HOUR) >= '' OR ''='') AND (DATE_SUB(T1.created,INTERVAL 6 HOUR)<= '' OR ''='') AND (T1.summary LIKE '%%' OR '%%'='') AND (T1.ip = '' OR ''='') order by EXTRACT(MONTH FROM created) DESC, EXTRACT(DAY FROM created) DESC, EXTRACT(YEAR FROM created) DESC, EXTRACT(HOUR FROM created) DESC]]>
+	</queryString>
+	<field name="created" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="summary" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_role" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_id" class="java.math.BigInteger">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="usuario" class="java.lang.String"/>
+	<field name="connector" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="context" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="action" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ip" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="142" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="52" y="2" width="100" height="20" uuid="bdee73d4-2d97-4986-9ced-a62c184c0742"/>
+				<text><![CDATA[created]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="52" y="9" width="100" height="20" uuid="cd70556d-e5a6-4cb6-9cdf-284838f54662"/>
+				<textFieldExpression><![CDATA[$F{created}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50" splitType="Stretch"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="65"/>
+	</lastPageFooter>
+</jasperReport>
