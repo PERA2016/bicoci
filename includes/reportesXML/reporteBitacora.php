@@ -4,7 +4,10 @@
 *Objetivo: Mostrar las instituciones que se encuentran implementando el plugin-sigoes
 *Dirección física: /SIGOES-Comunicados/includes/reportesXML/reporteBitacora.php
 */
+<<<<<<< 24c28b4c2210010a9014a5b5cef88f64d7ff8759
 
+=======
+>>>>>>> b22bf0312604e9dd1610d62e37ef976bdcfde71b
 include_once(bicoci_plugin_dir.'includes/lib/phpjasperxml/class/tcpdf/tcpdf.php');
 include_once(bicoci_plugin_dir.'includes/lib/phpjasperxml/class/PHPJasperXML.inc.php');
 include_once(bicoci_plugin_dir.'includes/setting.php');
@@ -42,12 +45,20 @@ $usuario=wp_get_current_user();
 $nombreCompleto=$usuario->user_firstname." ".$usuario->user_lastname;
 ob_end_clean();
 ob_start();
+<<<<<<< 24c28b4c2210010a9014a5b5cef88f64d7ff8759
 
 $xml = simplexml_load_file(bicoci_plugin_dir.'includes/reportesXML/reporteBitacora.jrxml');
 if($formato=='pdf')
 	{$PHPJasperXML = new PHPJasperXML();}
 else
 	{$PHPJasperXML = new PHPJasperXML("en","XLS");}
+=======
+$xml = simplexml_load_file(bicoci_plugin_dir.'includes/reportesXML/reporteBitacora.jrxml');
+if($formato=='pdf')
+    {$PHPJasperXML = new PHPJasperXML();}
+else
+    {$PHPJasperXML = new PHPJasperXML("en","XLS");}
+>>>>>>> b22bf0312604e9dd1610d62e37ef976bdcfde71b
 $PHPJasperXML->SetPrefijo($pfrpt);
 
 $arrayParametros=["userID" => $user_id, "context"=>$context, "connector"=>$connector, "action"=>$action, "fecha_fin"=>$fecha_fin_format, "fecha_ini"=>$fecha_ini_format, "search"=>$search, "ip"=>$ip];
@@ -68,6 +79,7 @@ if($fecha_fin == NULL OR $fecha_fin == "%")
 
 if($ip == NULL OR $ip == "%")
 {$ip   = 'Todas';}
+<<<<<<< 24c28b4c2210010a9014a5b5cef88f64d7ff8759
 
 $PHPJasperXML->arrayParameter=array("PATH"=>$PATH, "idusuario"=>$usuario->user_login, "nombreusuario" =>$nombreCompleto, "fecha_ini" =>$fecha_ini_format, "fecha_fin" =>$fecha_fin_format, "ip" =>$ip);
 $PHPJasperXML->transferDBtoArray($server,$user,$pass,$db);
@@ -75,4 +87,13 @@ if($formato=='pdf')
 	{$PHPJasperXML->outpage("I");}
 else
 	{$PHPJasperXML->outpage("I","Bitacora.xls");}
+=======
+//"PATH"=>$PATH,
+$PHPJasperXML->arrayParameter=array("idusuario"=>$usuario->user_login, "nombreusuario" =>$nombreCompleto, "fecha_ini" =>$fecha_ini_format, "fecha_fin" =>$fecha_fin_format, "ip" =>$ip);
+$PHPJasperXML->transferDBtoArray($server,$user,$pass,$db);
+if($formato=='pdf')
+    {$PHPJasperXML->outpage("I");}
+else
+    {$PHPJasperXML->outpage("I","Bitacora.xls");}
+>>>>>>> b22bf0312604e9dd1610d62e37ef976bdcfde71b
 ?>

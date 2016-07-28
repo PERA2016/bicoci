@@ -1,7 +1,5 @@
 <?php
-
 global $wpdb;
-
 $server	=DB_HOST;
 $user 	=DB_USER;
 $pass 	=DB_PASSWORD;
