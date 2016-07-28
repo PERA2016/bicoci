@@ -17,10 +17,7 @@ require_once(bicoci_plugin_dir.'/controller/HemerotecaController.php');
 require_once(bicoci_plugin_dir.'/controller/PapersController.php');
 require_once(bicoci_plugin_dir.'/controller/VideotecaController.php');
 require_once(bicoci_plugin_dir.'/controller/BitacoraController.php');
-<<<<<<< 24c28b4c2210010a9014a5b5cef88f64d7ff8759
-=======
 require_once(bicoci_plugin_dir.'/controller/ReporteController.php');
->>>>>>> b22bf0312604e9dd1610d62e37ef976bdcfde71b
 require_once(bicoci_plugin_dir.'/includes/EstadoComunicado.php');
 require_once(bicoci_plugin_dir.'/includes/ImagenRequerida.php');
 require_once(bicoci_plugin_dir.'/includes/Admin.php');
