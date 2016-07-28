@@ -191,17 +191,17 @@ function remove_row_actions( $actions, $post )
 ------------------------------------------------------------------------------------*/
 //Crear categorias de Los Publicados
 function categoria(){
-$my_catLibro = array('cat_name' => 'libro', 
+$my_catLibro = array('cat_name' => 'libros', 
     'category_description' => 'Publicados de libros de la EISI',
-     'category_nicename' => 'libro',
+     'category_nicename' => 'libros',
       'category_parent' => '');
 
 // Create the category
 wp_insert_category($my_catLibro);
 
-$my_catRevista = array('cat_name' => 'revista', 
-    'category_description' => 'Publicados de revistas de la EISI',
-     'category_nicename' => 'revista',
+$my_catRevista = array('cat_name' => 'revistas-cientificas', 
+    'category_description' => 'Publicados de revistas cientificas de la EISI',
+     'category_nicename' => 'revistas-cientificas',
       'category_parent' => '');
 // Create the category
 wp_insert_category($my_catRevista);
