@@ -122,9 +122,13 @@ echo '<style type="text/css">
     visibility: hidden;
 }
     </style>';
-
-
-
+//Download manager
+echo '<style type="text/css">
+      #wpdm_dashboard_widget{
+      display: none;
+      visibility: hidden;
+      } 
+</style>';
 //requiridos
 /* style all input elements with a required attribute */
 echo '<style type="text/css">
